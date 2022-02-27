@@ -9,4 +9,5 @@
     <color name="white">#FFFFFFFF</color>
     <color name="papyrus">#e9b97c</color>
     <color name="houses_background">#E9B97C</color>
+    <color name="dark_houses_background">#1E1305</color>
 </resources>
