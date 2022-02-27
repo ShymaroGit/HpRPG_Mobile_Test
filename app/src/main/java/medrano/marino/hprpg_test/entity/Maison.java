@@ -2,13 +2,17 @@ package medrano.marino.hprpg_test.entity;
 
 public class Maison {
     private int house_id;
-    private String house_nom, dark_color, light_color;
+    private String dark_color, light_color;
+    final static String[] houses = {"Gryffindor","Ravenclaw","Hufflepuff","Slytherin"};
 
-    public Maison(int house_id, String house_nom, String dark_color, String light_color) {
-        this.house_id = house_id;
-        this.house_nom = house_nom;
-        this.dark_color = dark_color;
-        this.light_color = light_color;
+    public Maison(int house_id, String dark_color, String light_color) {
+       setHouse_id(house_id);
+       setDark_color(dark_color);
+       setLight_color(light_color);
+    }
+
+    public Maison(){
+        this(2,"","");
     }
 
     public int getHouse_id() {
@@ -16,15 +20,11 @@ public class Maison {
     }
 
     public void setHouse_id(int house_id) {
-        this.house_id = house_id;
+        this.house_id = (house_id >= 1) ? Math.min(house_id, 4) : 1;
     }
 
     public String getHouse_nom() {
-        return house_nom;
-    }
-
-    public void setHouse_nom(String house_nom) {
-        this.house_nom = house_nom;
+        return Maison.houses[getHouse_id() - 1];
     }
 
     public String getDark_color() {
@@ -41,5 +41,15 @@ public class Maison {
 
     public void setLight_color(String light_color) {
         this.light_color = light_color;
+    }
+
+    @Override
+    public String toString() {
+        return "Maison{" +
+                "house_id=" + house_id +
+                ", house_nom='" + getHouse_nom() + '\'' +
+                ", dark_color='" + dark_color + '\'' +
+                ", light_color='" + light_color + '\'' +
+                '}';
     }
 }

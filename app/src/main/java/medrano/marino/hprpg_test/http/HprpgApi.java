@@ -1,5 +1,6 @@
 package medrano.marino.hprpg_test.http;
 
+import android.animation.TypeConverter;
 import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
@@ -9,12 +10,19 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.ExecutionException;
+import java.lang.reflect.Type;
+
+import medrano.marino.hprpg_test.entity.Maison;
+import medrano.marino.hprpg_test.entity.Perso;
+import medrano.marino.hprpg_test.entity.User;
 
 public class HprpgApi {
     private String url = "https://hprpgapi.shymarogames.tk/";
@@ -66,7 +74,17 @@ public class HprpgApi {
                     public void onResponse(String response) {
                         try{
                             Log.d("Result", response);
+                            JSONObject jsonResponse = new JSONObject(response);
+                            Type userType = new TypeToken<User>(){}.getType();
+                            Type persoType = new TypeToken<Perso>(){}.getType();
+                            Type maisonType = new TypeToken<Maison>(){}.getType();
 
+                            Gson gson = new Gson();
+                            User loggedUser= gson.fromJson(jsonResponse.getString("user"),userType);
+                            loggedUser.setPerso(gson.fromJson(jsonResponse.getString("persos"),persoType));
+                            loggedUser.getPerso().setMaison(gson.fromJson(jsonResponse.getString("persos"),maisonType));
+
+                            Log.d("User", String.valueOf(loggedUser));
                         } catch (Exception e){
                             Log.d("Exception:",e.getMessage());
                         }
@@ -97,7 +115,6 @@ public class HprpgApi {
                     }
                  };
         Volley.newRequestQueue(context).add(jsonObjReq);
-
     }
 
 }

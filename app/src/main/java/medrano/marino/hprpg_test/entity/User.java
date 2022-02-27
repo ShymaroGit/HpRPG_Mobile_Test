@@ -3,17 +3,17 @@ package medrano.marino.hprpg_test.entity;
 import java.util.Date;
 
 public class User {
-    private int user_id, lvl;
-    private String username;
-    private Date date_co;
-    private Perso perso;
+    private int user_id = 0, lvl = 0;
+    private String username = "";
+    private Date date_co = new Date();
+    private Perso persos = new Perso();
 
     public User(int user_id, int lvl, String username, Date date_co, Perso perso) {
         this.user_id = user_id;
         this.lvl = lvl;
         this.username = username;
         this.date_co = date_co;
-        this.perso = perso;
+        this.persos = perso;
     }
 
     public int getUser_id() {
@@ -49,10 +49,15 @@ public class User {
     }
 
     public Perso getPerso() {
-        return perso;
+        return persos;
     }
 
     public void setPerso(Perso perso) {
-        this.perso = perso;
+        this.persos = perso;
+    }
+
+    @Override
+    public String toString(){
+        return "#" + getUser_id() + ", Username: " + getUsername() + ", lvl: " + getLvl() + ", date_co: " + getDate_co().toString() + ", Perso: " + getPerso().toString();
     }
 }

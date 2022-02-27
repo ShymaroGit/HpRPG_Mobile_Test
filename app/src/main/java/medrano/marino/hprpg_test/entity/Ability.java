@@ -32,7 +32,6 @@ public class Ability {
     }
 
     public void setProgression(int progression) {
-
         this.progression = (progression >= 0) ? Math.min(progression, 100) : 0;
     }
 

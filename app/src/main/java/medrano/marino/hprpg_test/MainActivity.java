@@ -9,10 +9,11 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import medrano.marino.hprpg_test.entity.Competence;
+import medrano.marino.hprpg_test.entity.User;
 import medrano.marino.hprpg_test.http.HprpgApi;
 
 public class MainActivity extends AppCompatActivity {
-
+    private User mainUser;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
