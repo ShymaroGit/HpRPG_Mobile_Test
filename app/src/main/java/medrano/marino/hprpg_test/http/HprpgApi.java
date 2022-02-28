@@ -117,4 +117,27 @@ public class HprpgApi {
         Volley.newRequestQueue(context).add(jsonObjReq);
     }
 
+    public void getCompetences(){
+
+    }
+
+    public void getJournals(){
+
+    }
+
+    public void getSorts(){
+
+    }
+
+    public void getPersoStats(){
+
+    }
+
+    public void getItems(){
+
+    }
+
+
+
+
 }
