@@ -1,7 +1,7 @@
 package medrano.marino.hprpg_test.entity;
 
-public class Sort extends Ability{
-    private int journal_id;
+public class Sort extends BasicElement {
+    private int journal_id= 0;
 
     public Sort(int journal_id,String nom, String description, int progression, int visible) {
         super(nom, description, progression, visible);

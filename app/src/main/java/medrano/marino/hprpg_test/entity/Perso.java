@@ -1,8 +1,8 @@
 package medrano.marino.hprpg_test.entity;
 
 public class Perso {
-    private int perso_id= 0, house_id= 0, baguette_id= 0, profil_id= 0;
-    private int age= 0, chance, dex= 0, perc = 0,con= 0, intel= 0,magie= 0,taille= 0,str= 0,cha= 0,npc= 0,type= 0;
+    private int perso_id = 0, house_id = 0, baguette_id = 0, profil_id = 0;
+    private int age = 0, chance, dex = 0, perc = 0,con = 0, intel = 0,magie = 0,taille = 0,str = 0,cha = 0,npc = 0,type = 0;
     private String nom = "", prenom = "", patronus = "";
     private Maison maison = new Maison();
 

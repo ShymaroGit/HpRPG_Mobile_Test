@@ -1,10 +1,14 @@
 package medrano.marino.hprpg_test.entity;
 
-public class Ability {
-    private String nom, description;
-    private int progression, visible;
+/**
+ * Classe contenant les informations de base
+ * Sera hérité par toutes les classes avec un nom, une descriptions, une progression et une visibilité
+ */
+public class BasicElement {
+    private String nom = "", description = "";
+    protected int progression = 0, visible = 0;
 
-    public Ability(String nom, String description, int progression, int visible) {
+    public BasicElement(String nom, String description, int progression, int visible) {
         setNom(nom);
         setDescription(description);
         setProgression(progression);
@@ -31,7 +35,16 @@ public class Ability {
         return progression;
     }
 
+    /**
+     * Défini la progression de l'élément
+     * La valeur minimal est de 0 et
+     * La valeur maximal est de 100
+     * @param progression
+     */
     public void setProgression(int progression) {
+        // Vérifie si la valeur est supérieure à 0
+        // Si Oui, assigne la plus petit valeur entre la progression saisie et 100
+        // Si Non, assigne la valeur 0
         this.progression = (progression >= 0) ? Math.min(progression, 100) : 0;
     }
 
@@ -42,6 +55,7 @@ public class Ability {
     public void setVisible(int visible) {
         this.visible = visible;
     }
+
 
 
     @Override
