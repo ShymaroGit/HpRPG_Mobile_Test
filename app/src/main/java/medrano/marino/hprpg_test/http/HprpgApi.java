@@ -16,10 +16,12 @@ import com.google.gson.reflect.TypeToken;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
 import java.lang.reflect.Type;
 
+import medrano.marino.hprpg_test.entity.Competence;
 import medrano.marino.hprpg_test.entity.Maison;
 import medrano.marino.hprpg_test.entity.Perso;
 import medrano.marino.hprpg_test.entity.User;
@@ -135,19 +137,30 @@ public class HprpgApi {
      * @param perso_id
      */
     public void getPersoCompetences(int perso_id){
-        StringRequest jsonObjReq = new StringRequest(
-                Request.Method.GET,
-                url + "competences/perso/122819",
-                new Response.Listener<String>() {
+        ArrayList<Competence> listCompetences = new ArrayList<Competence>();
+        if (perso_id > 0){
+            StringRequest jsonObjReq = new StringRequest(
+                    Request.Method.GET,
+                    url + "competences/perso/" + perso_id,
+                    new Response.Listener<String>() {
+                        @Override
+                        public void onResponse(String response) {
+                            try{
+                                Log.d("Result", response);
+                                JSONObject jsonResponse = new JSONObject(response);
+                                Type competenceType = new TypeToken<ArrayList<Competence>>(){}.getType();
 
-                    @Override
-                    public void onResponse(String response) {
-                        try{
-                            Log.d("Result", response);
+                                Gson gson = new Gson();
+                                // Créé l'object utilisateur à partir des informations reçues par la requête
+                                ArrayList<Competence> listCompetences = gson.fromJson(jsonResponse.getString("data"),competenceType);
 
-                        } catch (Exception e){
-                            Log.d("Exception:",e.getMessage());
-                        }
+                                for(int i = 0; i < listCompetences.size();i++){
+                                    Log.d("c",listCompetences.get(i).toString());
+                                }
+
+                            } catch (Exception e){
+                                Log.d("Exception:",e.getMessage());
+                            }
                         /*catch (
                                 JSONException e) {
                             e.printStackTrace();
@@ -157,16 +170,17 @@ public class HprpgApi {
                                 ExecutionException e) {
                             e.printStackTrace();
                         }*/
+                        }
+                    },
+                    new Response.ErrorListener() {
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            Log.d("Error:", String.valueOf(error));
+                        }
                     }
-                },
-                new Response.ErrorListener() {
-                    @Override
-                    public void onErrorResponse(VolleyError error) {
-                        Log.d("Error:", String.valueOf(error));
-                    }
-                }
-        ) ;
-        Volley.newRequestQueue(context).add(jsonObjReq);
+            ) ;
+            Volley.newRequestQueue(context).add(jsonObjReq);
+        }
     }
 
     public void getJournals(){

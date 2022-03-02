@@ -5,8 +5,10 @@ package medrano.marino.hprpg_test.entity;
  * Sera hérité par toutes les classes avec un nom, une descriptions, une progression et une visibilité
  */
 public class BasicElement {
-    private String nom = "", description = "";
-    protected int progression = 0, visible = 0;
+    private String nom = "";
+    private String description = "";
+    protected int progression = 0;
+    protected int visible = 0;
 
     public BasicElement(String nom, String description, int progression, int visible) {
         setNom(nom);

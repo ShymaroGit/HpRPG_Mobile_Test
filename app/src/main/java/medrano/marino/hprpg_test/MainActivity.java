@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         //"competence_id":4517,"nom":"Analyse","description":"Trouver les liens entre les informations disponibles et comprendre ces liens","quantite":1,"progression":60,"visible":1
         //Competence testComp = new Competence(4517,"Analyse","Trouver les liens entre les informations disponibles et comprendre ces liens",60,1);
         //Log.d("Competence", String.valueOf(testComp));
+        api.getPersoCompetences(122819);
         Bourse newBourse = new Bourse(500,32,8);
         Bourse newBourse2 = new Bourse(27,12,8);
         Button btnLogin = findViewById(R.id.btnLogin);
