@@ -30,22 +30,15 @@ public class Bourse {
 
     public void divideFromAllKnuts(){
         int tempAllKnuts = this.getAllKnuts();
-        Log.d("All knuts", String.valueOf(tempAllKnuts));
-
         int gallionsLeftover = tempAllKnuts % GALLION_KNUTS_VAUE;
-        Log.d("Gallions Leftover", String.valueOf(gallionsLeftover));
+
         tempAllKnuts -= gallionsLeftover;
-        Log.d("All knuts", String.valueOf(tempAllKnuts));
         setGallion(tempAllKnuts / GALLION_KNUTS_VAUE);
-        Log.d("Gallions", String.valueOf(this.gallion));
         int siclesLeftover = gallionsLeftover % SICLE_KNUTS_VALUE;
-        Log.d("Sicle sLeftover", String.valueOf(siclesLeftover));
         gallionsLeftover -= siclesLeftover;
-        Log.d("Gallions Leftover", String.valueOf(gallionsLeftover));
+
         setSicle(gallionsLeftover / SICLE_KNUTS_VALUE);
-        Log.d("Sicles", String.valueOf(this.sicle));
         setKnuts(siclesLeftover);
-        Log.d("Knuts left", String.valueOf(this.knuts));
     }
 
     public int getKnuts() {

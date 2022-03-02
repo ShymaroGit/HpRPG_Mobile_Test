@@ -8,7 +8,7 @@ import org.json.JSONObject;
 import java.util.Date;
 
 public class Journal implements Parcelable {
-    private int journal_id,perso_id;
+    private int journal_id, perso_id;
     private String message, dateCreation, dateModification;
 
     public Journal(int journal_id, int perso_id, String message, String dateCreation, String dateModification) {

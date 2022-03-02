@@ -1,7 +1,7 @@
 package medrano.marino.hprpg_test.entity;
 
 public class Maison {
-    private int house_id= 2;
+    private int house_id = 2;
     private String dark_color = "", light_color = "";
     final static String[] houses = {"Gryffindor","Ravenclaw","Hufflepuff","Slytherin"};
 
