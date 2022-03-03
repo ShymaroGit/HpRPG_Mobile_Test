@@ -1,9 +1,7 @@
 package medrano.marino.hprpg_test.http;
 
-import android.animation.TypeConverter;
 import android.content.Context;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -13,7 +11,6 @@ import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;

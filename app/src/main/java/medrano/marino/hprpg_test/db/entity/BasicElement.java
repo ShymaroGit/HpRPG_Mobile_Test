@@ -1,14 +1,31 @@
-package medrano.marino.hprpg_test.entity;
+package medrano.marino.hprpg_test.db.entity;
+
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Ignore;
 
 /**
  * Classe contenant les informations de base
  * Sera hérité par toutes les classes avec un nom, une descriptions, une progression et une visibilité
  */
 public class BasicElement {
+    @ColumnInfo(name = COL_NOM)
     private String nom = "";
+    @ColumnInfo(name = COL_DESCRIPTION)
     private String description = "";
+    @ColumnInfo(name = COL_PROGRESSION)
     protected int progression = 0;
+    @ColumnInfo(name = COL_VISIBLE)
     protected int visible = 0;
+
+    @Ignore
+    public static final String COL_NOM = "nom";
+    @Ignore
+    public static final String COL_DESCRIPTION = "description";
+    @Ignore
+    public static final String COL_PROGRESSION = "progression";
+    @Ignore
+    public static final String COL_VISIBLE = "visible";
 
     public BasicElement(String nom, String description, int progression, int visible) {
         setNom(nom);

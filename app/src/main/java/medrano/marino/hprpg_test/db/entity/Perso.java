@@ -1,4 +1,4 @@
-package medrano.marino.hprpg_test.entity;
+package medrano.marino.hprpg_test.db.entity;
 
 public class Perso {
     private int perso_id = 0, house_id = 0, baguette_id = 0, profil_id = 0;

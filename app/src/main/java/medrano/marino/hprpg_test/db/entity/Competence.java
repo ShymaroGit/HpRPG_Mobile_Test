@@ -1,12 +1,23 @@
-package medrano.marino.hprpg_test.entity;
+package medrano.marino.hprpg_test.db.entity;
+
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
 
 /**
  * Classe contenant les informations d'une competence
  * Hérite de la classe Basic Element
  * Rajoute son id, sinon identique à la classe qu'elle hérite
  */
+@Entity
 public class Competence extends BasicElement {
+    @PrimaryKey
+    @ColumnInfo(name = COL_ID)
     private int competence_id = 0;
+
+    @Ignore
+    public final static String COL_ID = "competence_id";
 
     public Competence(int competence_id,String nom, String description, int progression, int visible) {
         super(nom, description, progression, visible);

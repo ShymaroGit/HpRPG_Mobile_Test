@@ -1,4 +1,4 @@
-package medrano.marino.hprpg_test.entity;
+package medrano.marino.hprpg_test.db.entity;
 
 public class Maison {
     private int house_id = 2;

@@ -1,11 +1,7 @@
-package medrano.marino.hprpg_test.entity;
+package medrano.marino.hprpg_test.db.entity;
 
 import android.os.Parcel;
 import android.os.Parcelable;
-
-import org.json.JSONObject;
-
-import java.util.Date;
 
 public class Journal implements Parcelable {
     private int journal_id, perso_id;

@@ -3,14 +3,11 @@ package medrano.marino.hprpg_test;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
-import medrano.marino.hprpg_test.entity.Bourse;
-import medrano.marino.hprpg_test.entity.Competence;
-import medrano.marino.hprpg_test.entity.User;
+import medrano.marino.hprpg_test.db.entity.Bourse;
+import medrano.marino.hprpg_test.db.entity.User;
 import medrano.marino.hprpg_test.http.HprpgApi;
 
 public class MainActivity extends AppCompatActivity {

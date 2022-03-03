@@ -1,4 +1,4 @@
-package medrano.marino.hprpg_test.entity;
+package medrano.marino.hprpg_test.db.entity;
 
 import android.util.Log;
 
